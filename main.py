@@ -3,6 +3,7 @@ from token import COMMA
 import speech_recognition as sr
 import pyttsx3
 import pywhatkit
+import datetime
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
@@ -39,5 +40,8 @@ def run_alexa():
         song = command.replace('play', '')
         talk('playing'+ song)
         pywhatkit.playonyt(song)
+    elif 'time' in command:
+        time = datetime.datetime.now().strftime('%H:%M')
+        talk('curent time is' + time )
 
 run_alexa()
