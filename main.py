@@ -42,6 +42,7 @@ def run_alexa():
         pywhatkit.playonyt(song)
     elif 'time' in command:
         time = datetime.datetime.now().strftime('%H:%M')
+        print(time)
         talk('curent time is' + time )
 
 run_alexa()
