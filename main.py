@@ -1,10 +1,9 @@
-from token import COMMA
-
 import speech_recognition as sr
 import pyttsx3
 import pywhatkit
 import datetime
 import wikipedia
+import pyjokes
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
@@ -42,9 +41,10 @@ def run_alexa():
         talk('playing'+ song)
         pywhatkit.playonyt(song)
     elif 'time' in command:
-        time = datetime.datetime.now().strftime('%I:%M %P   pip install wikipedia')
+        time = datetime.datetime.now().strftime('%I:%M %p')
         print(time)
         talk('curent time is' + time )
+
     elif 'who the heck is' in command:
         person = command.replace('who the heck is', '')
         info = wikipedia.summary(person,1)
@@ -53,8 +53,12 @@ def run_alexa():
 
     elif 'date' in command:
         talk('Sorry I Have A Headec')
-    elif 'Are You Single' in command:
+
+    elif 'are you single' in command:
         talk('I Am A RelationShip With Wifi')
 
+    elif 'jokes' in command:
+        talk(pyjokes.get_joke())
 
-run_alexa()
+while True:
+ run_alexa()
