@@ -4,3 +4,5 @@ import 3 Python Packages first
 -pip install pyAudio
 
 pip install wikipedia
+
+pip install pyjokes
