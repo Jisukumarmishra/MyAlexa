@@ -4,6 +4,7 @@ import speech_recognition as sr
 import pyttsx3
 import pywhatkit
 import datetime
+import wikipedia
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
@@ -41,8 +42,19 @@ def run_alexa():
         talk('playing'+ song)
         pywhatkit.playonyt(song)
     elif 'time' in command:
-        time = datetime.datetime.now().strftime('%H:%M')
+        time = datetime.datetime.now().strftime('%I:%M %P   pip install wikipedia')
         print(time)
         talk('curent time is' + time )
+    elif 'who the heck is' in command:
+        person = command.replace('who the heck is', '')
+        info = wikipedia.summary(person,1)
+        print(info)
+        talk(info)
+
+    elif 'date' in command:
+        talk('Sorry I Have A Headec')
+    elif 'Are You Single' in command:
+        talk('I Am A RelationShip With Wifi')
+
 
 run_alexa()
